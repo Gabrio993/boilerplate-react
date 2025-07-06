@@ -1,9 +1,9 @@
 import { useMutation } from "@tanstack/react-query";
-import { createElement } from "../api/api";
-const useCreateElement = () => {
+import { createCharacter } from "../api/api";
+const useCreateCharacter = () => {
   return useMutation({
-    mutationFn: createElement,
+    mutationFn: createCharacter,
   });
 };
 
-export default useCreateElement;
+export default useCreateCharacter;

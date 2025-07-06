@@ -1,8 +1,8 @@
 import { useState } from "react";
-import useCreateElement from "../hooks/useCreateCharacter";
+import useCreateCharacter from "../hooks/useCreateCharacter";
 
 const CreateCharacterForm = () => {
-  const { mutate, isPending, isSuccess, isError, error } = useCreateElement();
+  const { mutate, isPending, isSuccess, isError, error } = useCreateCharacter();
 
   const [formData, setFormData] = useState<Character>({
     name: "",
@@ -26,7 +26,7 @@ const CreateCharacterForm = () => {
   return (
     <>
       <h1 className="text-center mt-14 font-medium">Add Character</h1>
-      <form onSubmit={handleSubmit} className="space-y-4 p-4  border rounded">
+      <form onSubmit={handleSubmit} className="space-y-4 p-4">
         <div>
           <label className="block">Nome</label>
           <input type="text" name="name" value={formData.name} onChange={handleChange} className="border p-2 rounded w-full" required />
@@ -41,8 +41,6 @@ const CreateCharacterForm = () => {
           <label className="block">Specie</label>
           <input type="text" name="species" value={formData.species} onChange={handleChange} className="border p-2 rounded w-full" required />
         </div>
-
-        {/* Aggiungi altri campi opzionali se vuoi */}
 
         <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded" disabled={isPending}>
           {isPending ? "Creazione in corso..." : "Crea personaggio"}

@@ -7,6 +7,7 @@ const Character = () => {
 
   if (isLoading) return <p>Caricamento personaggio...</p>;
   if (error) return <p>Errore nel caricamento</p>;
+  console.log("[data c.id]", data);
 
   return (
     <div className="p-4">

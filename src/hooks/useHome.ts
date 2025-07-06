@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchList } from "../api/api";
 
-const useHome = () => {
+const useHome = (page: number) => {
   return useQuery({
-    queryKey: ["Characters"],
-    queryFn: fetchList,
+    queryKey: ["Characters", page],
+    queryFn: () => fetchList(page),
     staleTime: 1000 * 60 * 5,
   });
 };
